@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-@section('title', 'Inventories')
-@section('page-title', 'Inventories')
+@section('title', $title)
+@section('page-title', $title)
 
 @section('content')
 <div class="card">

@@ -4,32 +4,29 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTablePurchases extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->string('number')->nullable();
             $table->date('date')->nullable();
             $table->integer('user_id')->nullable();
-            $table->softDeletes();
+            $table->decimal('total_amount', 50, 2)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('purchases');
     }
-}
+};

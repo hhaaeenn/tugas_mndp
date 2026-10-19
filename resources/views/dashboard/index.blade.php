@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-@section('title', 'Dashboard')
-@section('page-title', 'Dashboard')
+@section('title', $title)
+@section('page-title', $title)
 
 @section('content')
 <div class="row g-3 mb-4">

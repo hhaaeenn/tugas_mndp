@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web\Dashboard;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Inventories;
 use App\Models\Purchases;
@@ -14,6 +16,8 @@ class DashboardController extends Controller
         $sales_count       = Sales::whereNull('deleted_at')->count();
         $purchases_count   = Purchases::whereNull('deleted_at')->count();
 
-        return view('dashboard', compact('inventories_count', 'sales_count', 'purchases_count'));
+        $title = 'Dashboard';
+
+        return view('dashboard.'.__FUNCTION__, compact('title', 'inventories_count', 'sales_count', 'purchases_count'));
     }
 }

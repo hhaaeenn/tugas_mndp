@@ -4,33 +4,30 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableSalesDetails extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('sales_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('sales_id')->nullable();
+            $table->integer('sale_id')->nullable();
             $table->integer('inventory_id')->nullable();
-            $table->integer('qty')->nullable();
-            $table->string('price')->nullable();
-            $table->softDeletes();
+            $table->integer('quantity')->nullable();
+            $table->decimal('price', 50, 2)->nullable();
+            $table->decimal('subtotal', 50, 2)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('sales_details');
     }
-}
+};
